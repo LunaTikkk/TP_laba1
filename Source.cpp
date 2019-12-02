@@ -11,6 +11,32 @@ private:
 	int hours;
 	int minutes;
 public:
+	Train() {
+		name = '0';
+		number = 0;
+		hours = 0;
+		minutes = 0;
+		cout << "Вызван конструктор без параметров" << endl;
+	}
+	Train(string a, int b, int c, int d) {
+		name = a;
+		number = b;
+		hours = c;
+		minutes = d;
+		cout << "Вызван конструктор с параметром" << endl;
+	}
+	Train(const Train& train) {
+		name = train.name;
+		number = train.number;
+		hours = train.hours;
+		minutes = train.minutes;
+		cout << "Вызван конструктор копирования" << endl;
+	}
+
+	~Train() {
+		cout << "Вызван деструктор" << endl;
+	}
+
 	friend istream& operator>> (istream& in, Train& train);
 	friend ostream& operator<< (ostream& out, Train& train);
 
@@ -125,6 +151,7 @@ int main(int argc, char* argv[]) {
 	int a = 0;
 	string name_1;
 
+	system("pause");
 	while (a != 4) {
 		system("cls");
 		cout << "Выберите действией:\n1.Ввод данных о 6-ти поездах\n2.Вывод на экран поездов, отсортированных по времени\n"
