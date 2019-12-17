@@ -7,12 +7,7 @@ void sort(Train A[]) {
 	Train B;
 	for (int i = 0; i < N - 1; i++) {
 		for (int j = 0; j < N - i - 1; j++) {
-			if (A[j].hours > A[j + 1].hours) {
-				B = A[j];
-				A[j] = A[j + 1];
-				A[j + 1] = B;
-			}
-			else if (A[j].hours == A[j + 1].hours && A[j].minutes > A[j + 1].minutes) {
+			if (A[j]>A[j+1]) {
 				B = A[j];
 				A[j] = A[j + 1];
 				A[j + 1] = B;
@@ -91,4 +86,11 @@ Train& Train::operator=(const Train& right) {
 		this->name = right.name;
 
 		return *this;
+}
+
+bool Train::operator>(const Train& right) {
+	if ((this->hours > right.hours) || (this->hours == right.hours && this->minutes > right.minutes))
+		return true;
+	else
+		return false;
 }

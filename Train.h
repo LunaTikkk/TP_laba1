@@ -40,6 +40,7 @@ public:
 	friend istream& operator>> (istream& in, Train& train);
 	friend ostream& operator<< (ostream& out, Train& train);
 	Train& operator=(const Train& right);
+	bool operator>(const Train& right);
 
 	friend void sort(Train A[]);
 	string get_name() {
